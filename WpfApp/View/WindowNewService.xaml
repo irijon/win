@@ -26,10 +26,10 @@
         <TextBox x:Name="Id" Grid.Row="1" Height="26" Width="155" 
                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,13,0,107" 
                   Text="{Binding Id}" IsEnabled="False" Grid.Column="1"/>
-        <TextBox x:Name="Status" Height="24" Width="155"
+        <TextBox x:Name="Nam" Height="24" Width="155"
             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,55,0,67"
             Text="{Binding Name}" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="Statu" Height="24" Width="155"
+        <TextBox x:Name="Price" Height="24" Width="155"
             HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,93,0,29"
             Text="{Binding Price}" Grid.Column="1" Grid.Row="1"/>
         <StackPanel Grid.Column="1" Grid.Row="2" 

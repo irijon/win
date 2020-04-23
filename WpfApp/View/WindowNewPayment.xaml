@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.View"
         mc:Ignorable="d"
-        Title="WindowNewClient" Height="450" Width="800">
-    <Grid>
-        
+        Title="WindowNewClient" Height="470" Width="326.956">
+    <Grid RenderTransformOrigin="0.499,0.761" Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="328*"/>
+            <RowDefinition Height="91*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Код:" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12,79,296" Height="20" Width="27" RenderTransformOrigin="-0.468,0.593"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Количество:" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,213,28,99" Height="16" Width="78" RenderTransformOrigin="-2.935,0.52"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Дата:" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,112,61,196" Height="20" Width="45" RenderTransformOrigin="-2.935,0.52"/>
+        <TextBox x:Name="Id" Grid.Row="0" Height="26" Width="155" 
+                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,12,0,290" 
+                  Text="{Binding Id}" IsEnabled="False" Grid.Column="1"/>
+        <TextBox x:Name="Quantity" Grid.Row="0" Height="28" Width="154" 
+                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,213,0,87" 
+                  Text="{Binding Quantity}" Grid.Column="1"/>
+        <ComboBox x:Name="CbSer" Grid.Column="1" Height="27" Width="155" 
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,162,0,139"
+                  DisplayMemberPath="Name"/>
+        <ComboBox x:Name="CbCl" Height="27" Width="155" 
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="109,52,0,249"
+                  DisplayMemberPath="FirstName" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="Date" Grid.Column="1" 
+                  SelectedDate="{Binding Date,
+                  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Width="154" Margin="0,108,0,196" Height="24"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" 
+                    Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,35,35" Width="150">
+            <Button x:Name="BtSave" Content="Сохранить" Height="25" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Margin="5,10,10,5" IsDefault="True" Click="BtSave_Click"/>
+            <Button x:Name="BtCansel" Content="Отменить" Height="25" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Margin="5,10,10,5" IsCancel="True"/>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Услуга:" 
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,162,61,146" Height="20" Width="45" RenderTransformOrigin="-2.935,0.52"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Клиент:" 
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,52,61,256" Height="20" Width="45" RenderTransformOrigin="-2.935,0.52"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Сумма покупки:" 
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,263,6,45" Height="20" Width="100" RenderTransformOrigin="-2.935,0.52"/>
+        <TextBox x:Name="Amount" Grid.Row="0" Height="28" Width="154" 
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="109,263,0,37" 
+            Text="{Binding Amount}" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>
