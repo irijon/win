@@ -23,6 +23,8 @@ namespace WpfApp
     {
         public static int IdService { get; set; }
         public static int IdClient { get; set; }
+
+        public static int IdPayment { get; set; }
         public MainWindow()
         {
             InitializeComponent();

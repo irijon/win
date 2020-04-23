@@ -5,37 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.View"
         mc:Ignorable="d"
-        Title="WindowNewClient" Height="400" Width="260">
+        Title="WindowNewClient" Height="430" Width="280">
     <Grid RenderTransformOrigin="0.499,0.761">
         <Grid.RowDefinitions>
-            <RowDefinition Height="47*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="45*"/>
+            <RowDefinition Height="144*"/>
+            <RowDefinition Height="96*"/>
+            <RowDefinition Height="139*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Код:" 
-                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,12,54,109" Height="20" Width="27"/>
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,13,61,119" Height="20" Width="27" RenderTransformOrigin="-0.468,0.593"/>
         <TextBlock Grid.Column="0" Text="Фамилия:" 
-                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,97,12,24" Height="20" Width="76"/>
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,99,12,25" Height="20" Width="76"/>
         <TextBox x:Name="Id" Grid.Row="0" Height="26" Width="155" 
-                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,8,0,107" 
+                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,9,0,109" 
                   Text="{Binding Id}" IsEnabled="False" Grid.Column="1"/>
         <TextBox x:Name="LastName" Height="26" Width="155"
-                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,95,0,20"
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,97,0,21"
                  Text="{Binding LastName}" Grid.Column="1"/>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" 
-                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,50,54,71" Height="20" Width="27"/>
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,55,61,77" Height="20" Width="27" RenderTransformOrigin="-2.935,0.52"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Email:" 
-                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,14,12,59" Height="20" Width="76"/>
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,15,12,61" Height="20" Width="76"/>
         <TextBox x:Name="FirstName" Grid.Row="0" Height="28" Width="154" 
-                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,50,0,63" 
+                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,51,0,65" 
                   Text="{Binding FirstName}" Grid.Column="1"/>
         <TextBox x:Name="Email" Height="24" Width="155"
-                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,59"
+                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,11,0,61"
                  Text="{Binding Email}" Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Grid.Column="0" Text="Телефон:" 
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,51,12,25" Height="20" Width="76" Grid.Row="1"/>
+        <TextBox x:Name="Phone" Height="26" Width="155"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,49,0,21"
+            Text="{Binding Phone}" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Статус:" 
+            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,16,12,103" Height="20" Width="76"/>
+        <TextBox x:Name="Status" Height="24" Width="155"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,12,0,103"
+            Text="{Binding Status}" Grid.Row="2" Grid.Column="1"/>
         <StackPanel Grid.Column="1" Grid.Row="2" 
                     Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,71,0,0" Width="150">
             <Button x:Name="BtSave" Content="Сохранить" Height="25" 
@@ -45,15 +55,6 @@
                     HorizontalAlignment="Right" VerticalAlignment="Top" 
                     Margin="5,10,10,5" IsCancel="True"/>
         </StackPanel>
-        <TextBlock Grid.Column="0" Text="Телефон:" 
-            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,49,12,24" Height="20" Width="76" Grid.Row="1"/>
-        <TextBox x:Name="Phone" Height="26" Width="155"
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,47,0,20"
-            Text="{Binding Phone}" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Статус:" 
-            HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,14,12,101" Height="20" Width="76"/>
-        <TextBox x:Name="Status" Height="24" Width="155"
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,101"
-            Text="{Binding Status}" Grid.Row="2" Grid.Column="1"/>
+
     </Grid>
 </Window>

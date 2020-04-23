@@ -27,5 +27,10 @@ namespace WpfApp.Model
             this.Phone = Phone;
             this.Email = Email;
         }
+
+        public Client ShallowCopy()
+        {
+            return (Client)this.MemberwiseClone();
+        }
     }
 }

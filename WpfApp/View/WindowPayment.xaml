@@ -18,7 +18,7 @@
         </StackPanel>
         <Label Margin="5" HorizontalAlignment="Center">
             Список покупок</Label>
-        <ListView x:Name="Payment" SelectionChanged="Payment_SelectionChanged">
+        <ListView x:Name="Payment">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

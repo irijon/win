@@ -20,5 +20,9 @@ namespace WpfApp.Model
             this.Price  = Price;
             this.Name = Name;
         }
+        public Service ShallowCopy()
+        {
+            return (Service)this.MemberwiseClone();
+        }
     }
 }

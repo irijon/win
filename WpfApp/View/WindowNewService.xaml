@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.View"
         mc:Ignorable="d"
-        Title="WindowNewClient" Height="450" Width="800">
-    <Grid>
-        
+        Title="WindowNewClient" Height="260" Width="280">
+    <Grid RenderTransformOrigin="0.46,0.871" Margin="0,0,0,1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="146*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Код:" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,11,61,115" Height="20" Width="27" RenderTransformOrigin="-0.468,0.593"/>
+        <TextBlock Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,93,12,33" Height="20" Width="76" Grid.Row="1" RenderTransformOrigin="0.539,-3.5"><Run Text="Цена"/><Run Text=":"/></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,51,25,75" Height="20" Width="63" RenderTransformOrigin="-2.935,0.52"><Run Text="Название"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="Id" Grid.Row="1" Height="26" Width="155" 
+                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,13,0,107" 
+                  Text="{Binding Id}" IsEnabled="False" Grid.Column="1"/>
+        <TextBox x:Name="Status" Height="24" Width="155"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,55,0,67"
+            Text="{Binding Name}" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="Statu" Height="24" Width="155"
+            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,93,0,29"
+            Text="{Binding Price}" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Grid.Column="1" Grid.Row="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0" Width="150">
+            <Button x:Name="BtSave" Content="Сохранить" Height="25" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Margin="5,10,10,5" IsDefault="True" Click="BtSave_Click"/>
+            <Button x:Name="BtCansel" Content="Отменить" Height="25" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" 
+                    Margin="5,10,10,5" IsCancel="True"/>
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp.ViewModel;
 
 namespace WpfApp.Model
 {
@@ -26,6 +27,45 @@ namespace WpfApp.Model
             this.Date  = Date;
             this.Quantity  = Quantity;
             this.Amount   = Amount;
+        }
+
+        public Payment ShallowCopy()
+        {
+            return (Payment)this.MemberwiseClone();
+        }
+
+        public Payment CopyFromPaymentDPO(PaymentDOP p)
+        {
+            ServiceViewModel vmSer = new ServiceViewModel();
+            ClientViewModel vmCl = new ClientViewModel();
+            int SERId = 0;
+            int CLId = 0;
+            foreach (var r in vmSer.ServiceList)
+            {
+                if (r.Name == p.Service)
+                {
+                    SERId = r.Id;
+                    break;
+                }
+            }
+            foreach (var r in vmCl.ClientPerson)
+            {
+                if (r.FirstName + " " + r.LastName == p.Client)
+                {
+                    CLId = r.Id;
+                    break;
+                }
+            }
+            if (SERId != 0 && CLId != 0)
+            {
+                this.Id = p.Id;
+                this.ServiceId = SERId;
+                this.ClientId = CLId;
+                this.Date = p.Date;
+                this.Quantity = p.Quantity;
+                this.Amount = p.Amount;
+            }
+            return this;
         }
     }
 }

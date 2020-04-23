@@ -45,11 +45,50 @@ namespace WpfApp.View
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-           
+            Client role = (Client)Clients.SelectedItem;
+            if (role != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Удалить данные?", "Предупреждение", MessageBoxButton.OKCancel,
+                MessageBoxImage.Warning);
+                if (result == MessageBoxResult.OK)
+                {
+                    vmClient.ClientPerson.Remove(role);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Необходимо выбрать запись для удаления",
+                    "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowNewClient wnClient = new WindowNewClient
+            {
+                Title = "Редактирование должности",
+                Owner = this
+            };
+            Client role = Clients.SelectedItem as Client;
+            if (role != null)
+            {
+                Client tempRole = role.ShallowCopy();
+                wnClient.DataContext = tempRole;
+                if (wnClient.ShowDialog() == true)
+                {
+                    role.FirstName = tempRole.FirstName;
+                    role.LastName = tempRole.LastName;
+                    role.Status = tempRole.Status;
+                    role.Phone = tempRole.Phone;
+                    role.Email = tempRole.Email;
+                    Clients.ItemsSource = null;
+                    Clients.ItemsSource = vmClient.ClientPerson;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Необходимо выбрать запись для редактированния",
+                    "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

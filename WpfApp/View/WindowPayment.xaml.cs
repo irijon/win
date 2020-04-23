@@ -23,50 +23,31 @@ namespace WpfApp.View
     /// </summary>
     public partial class WindowPayment : Window
     {
+        PaymentViewModel vmPayment = new PaymentViewModel();
+        ServiceViewModel vmService;
+        ClientViewModel vmClient;
+        List<Service> services;
+        List<Client> clients;
         public WindowPayment()
         {
             InitializeComponent();
 
-            PaymentViewModel vmPayment = new PaymentViewModel();
-            ServiceViewModel vmService = new ServiceViewModel();
-            ClientViewModel vmClient = new ClientViewModel();
-            List<Service> services = new List<Service>();
-            List<Client> clients = new List<Client>();
-            foreach (Service r in vmService.ServiceList)
-            {
-                services.Add(r);
-            }
-            foreach (Client r in vmClient.ClientPerson)
-            {
-                clients.Add(r);
-            }
+            vmPayment = new PaymentViewModel();
+            vmService = new ServiceViewModel();
+            vmClient = new ClientViewModel();
+            services = vmService.ServiceList.ToList();
+            clients = vmClient.ClientPerson.ToList();
 
             ObservableCollection<PaymentDOP> persons = new ObservableCollection<PaymentDOP>();
-            FindService finder;
-            FindClient finCL;
-            foreach (var p in vmPayment.PaymentPerson)
+            foreach (var pay in vmPayment.PaymentPerson)
             {
-                finder = new FindService(p.Id);
-                finCL = new FindClient(p.Id);
-                Service rol = services.Find(new Predicate<Service>(finder.ServicePredicate));
-                Client cl = clients.Find(new Predicate<Client>(finCL.ClientPredicate));
-                persons.Add(new PaymentDOP
-                {
-                    Id = p.Id,
-                    Client = cl.FirstName+" "+cl.LastName,
-                    Service = rol.Name,
-                    Date = p.Date,
-                    Quantity = p.Quantity,
-                    Amount = p.Amount,
-            });
+                PaymentDOP p = new PaymentDOP();
+                p = p.CopyFromPerson(pay);
+                persons.Add(p);
             }
             Payment.ItemsSource = persons;
         }
 
-        private void Payment_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
 
